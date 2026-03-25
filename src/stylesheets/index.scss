@@ -1,0 +1,2101 @@
+
+:root {
+  --frame: 1920px;
+  --container-wide: 1680px; /* 1750-1920 */
+  --container-medium: 1280px; /* 1350-1750 */
+  --container-scale: 1;
+  --side-wide: 120px;
+  --side-medium: 35px;
+  --gutter: 40px;
+  
+  --scale-wide: 1;
+  --scale-medium: 0.7619; /* 1280/1680 */
+  
+  --bg: #e52a25;
+  --text: rgba(255, 255, 255, 0.92);
+  --muted: rgba(255, 255, 255, 0.7);
+  --line: rgba(255, 255, 255, 0.16);
+  --panel: rgba(255, 255, 255, 0.06);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Alumni Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 10px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.skip-link:focus {
+  left: 12px;
+  outline: 2px solid rgba(255, 255, 255, 0.45);
+  outline-offset: 2px;
+}
+
+/* CONTAINER С МАСШТАБИРОВАНИЕМ */
+.container {
+  /* Максимум 1680px, минимум 1280px, пропорционально от viewport */
+  width: clamp(1280px, 75vw, 1680px);
+  max-width: 1680px;
+  margin: 0 auto;
+}
+
+/* МАСШТАБИРУЕМЫЕ ЭЛЕМЕНТЫ */
+.page {
+  padding: calc(32px * var(--scale-factor, 1)) 0 calc(80px * var(--scale-factor, 1));
+}
+
+.site-header .header__inner {
+  padding: calc(18px * var(--scale-factor, 1)) 0;
+  gap: calc(24px * var(--scale-factor, 1));
+}
+
+.brand-logo {
+  height: calc(243px * var(--scale-factor, 1));
+  width: auto;
+}
+
+/* Масштабирование всех размеров через clamp */
+.h2 { 
+  font-size: clamp(140px, 11.5vw, 200px); 
+  margin-bottom: calc(12px * var(--scale-factor, 1));
+}
+
+.nav { 
+  font-size: clamp(42px, 3.5vw, 60px); 
+  gap: calc(40px * var(--scale-factor, 1));
+  letter-spacing: calc(0.06em * var(--scale-factor, 1));
+}
+
+.placeholder-title { 
+  font-size: clamp(38px, 3.2vw, 55px); 
+}
+
+.placeholder-date { 
+  font-size: clamp(28px, 2.3vw, 40px); 
+}
+
+.placeholder {
+  width: clamp(1176px, 100%, 1680px);
+  height: clamp(549px, 42vw, 720px);
+}
+
+.placeholder--split-small {
+  width: clamp(488px, 36.5%, 640px);
+  height: clamp(549px, 42vw, 720px);
+}
+
+.placeholder--split-large {
+  width: clamp(731px, 55%, 960px);
+  height: clamp(549px, 42vw, 720px);
+}
+
+.placeholders { 
+  gap: clamp(106px, 8.9vw, 150px); 
+}
+
+.overlay-img {
+  width: clamp(380px, 29.5vw, 500px);
+  height: clamp(228px, 17.5vw, 300px);
+  border-width: calc(10px * var(--scale-factor, 1));
+}
+
+.contest-button {
+  width: clamp(400px, 31vw, 530px);
+  height: clamp(75px, 6vw, 100px);
+  font-size: clamp(40px, 3.2vw, 55px);
+  padding: calc(12px * var(--scale-factor, 1)) calc(24px * var(--scale-factor, 1));
+}
+
+p, .muted {
+  font-size: calc(22px * var(--scale-factor, 1));
+  line-height: 1.2;
+}
+
+.section {
+  margin-top: calc(112px * var(--scale-factor, 1));
+}
+
+.section-header {
+  margin-bottom: calc(12px * var(--scale-factor, 1));
+}
+
+.see-all {
+  font-size: calc(40px * var(--scale-factor, 1));
+}
+
+/* КАРТОЧКИ - ГЛАВНОЕ МАСШТАБИРОВАНИЕ */
+.placeholders {
+  gap: calc(150px * var(--scale-factor, 1));
+  margin-top: calc(18px * var(--scale-factor, 1));
+}
+
+.placeholders--split {
+  gap: calc(80px * var(--scale-factor, 1));
+}
+
+/* ОСНОВНЫЕ КАРТОЧКИ */
+.placeholder {
+  height: calc(720px * var(--scale-factor, 1));
+  width: calc(1680px * var(--scale-factor, 1));
+}
+
+.placeholder--split-small {
+  width: calc(640px * var(--scale-factor, 1));
+  height: calc(720px * var(--scale-factor, 1));
+}
+
+.placeholder--split-large {
+  width: calc(960px * var(--scale-factor, 1));
+  height: calc(720px * var(--scale-factor, 1));
+}
+
+/* СПЛИТ КАРТОЧКИ В НОВОМ */
+.placeholder--split-small.small-large {
+  width: calc(580px * var(--scale-factor, 1));
+}
+
+.placeholder--split-large.large-small {
+  width: calc(1060px * var(--scale-factor, 1));
+}
+
+/* GAP ДЛЯ НОВОГО */
+#new .placeholders {
+  gap: calc(40px * var(--scale-factor, 1));
+  row-gap: calc(150px * var(--scale-factor, 1));
+  margin-bottom: calc(150px * var(--scale-factor, 1));
+}
+
+#new .placeholders--split {
+  gap: calc(40px * var(--scale-factor, 1));
+  row-gap: calc(150px * var(--scale-factor, 1));
+}
+
+/* КОНКУРС */
+.contest-container {
+  gap: calc(20px * var(--scale-factor, 1));
+}
+
+.contest-button {
+  width: calc(530px * var(--scale-factor, 1));
+  height: calc(100px * var(--scale-factor, 1));
+  font-size: calc(55px * var(--scale-factor, 1));
+  padding: calc(12px * var(--scale-factor, 1)) calc(24px * var(--scale-factor, 1));
+}
+
+.contest-image-wrapper {
+  height: calc(300px * var(--scale-factor, 1));
+}
+
+/* КОНТЕНТ КАРТОЧЕК */
+.placeholder-content {
+  left: calc(20px * var(--scale-factor, 1));
+  bottom: calc(20px * var(--scale-factor, 1));
+  right: calc(20px * var(--scale-factor, 1));
+}
+
+.placeholder-date {
+  font-size: calc(40px * var(--scale-factor, 1));
+}
+
+.placeholder-title {
+  font-size: calc(55px * var(--scale-factor, 1));
+}
+
+/* QUOTES */
+.tintin-quote,
+.titan-quote,
+.prostokvashino-quote {
+  font-size: calc(40px * var(--scale-factor, 1));
+  padding: calc(15px * var(--scale-factor, 1)) calc(20px * var(--scale-factor, 1));
+  max-width: calc(500px * var(--scale-factor, 1));
+}
+
+/* OVERLAY */
+.overlay-stack {
+  right: calc(-200px * var(--scale-factor, 1));
+}
+
+.overlay-stack .overlay-img:first-child {
+  margin-right: calc(-100px * var(--scale-factor, 1));
+}
+
+.overlay-img {
+  width: calc(500px * var(--scale-factor, 1));
+  height: calc(300px * var(--scale-factor, 1));
+  border-width: calc(10px * var(--scale-factor, 1));
+}
+
+/* ФУТЕР */
+.footer-title {
+  font-size: calc(55px * var(--scale-factor, 1));
+}
+
+.footer-list {
+  font-size: calc(22px * var(--scale-factor, 1));
+  gap: calc(10px * var(--scale-factor, 1));
+}
+
+.footer__inner {
+  padding: calc(22px * var(--scale-factor, 1)) 0;
+}
+
+.footer-grid {
+  gap: calc(40px * var(--scale-factor, 1));
+}
+
+/* ХЛЕБНЫЕ КРОШКИ */
+.breadcrumbs div {
+  font-size: calc(40px * var(--scale-factor, 1)) !important;
+}
+
+.site-header {
+  position: relative;
+  top: 0;
+  z-index: 10;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+
+.header__inner {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 24px;
+  padding: 18px 0;
+}
+
+.brand {
+  display: grid;
+  line-height: 1;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.brand-logo {
+  height: 243px;
+  width: auto;
+}
+
+.brand__top {
+  font-size: 18px;
+  opacity: 0.85;
+}
+
+.brand__bottom {
+  font-size: 28px;
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  font-weight: 700;
+  font-size: 60px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #000000;
+}
+
+.nav--left {
+  justify-content: flex-start;
+}
+
+.nav--right {
+  justify-content: flex-end;
+}
+
+.h1 {
+  margin: 0 0 10px;
+  font-size: 64px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.h2 {
+  margin: 0 0 12px;
+  font-size: 200px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+p {
+  margin: 0;
+  font-size: 22px;
+  line-height: 1.2;
+  color: var(--text);
+}
+
+.muted {
+  color: var(--muted);
+  font-size: 22px;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.section {
+  margin-top: 112px;
+  position: relative;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 12px;
+}
+
+.see-all {
+  color: #000000;
+  font-size: 40px;
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+
+.see-all:hover {
+  text-decoration: underline;
+}
+
+.placeholders {
+  display: grid;
+  gap: 150px;
+  margin-top: 18px;
+}
+
+/* Увеличенное расстояние для Вселенных с учетом overlay фоток */
+#universes .placeholders {
+  gap: 150px;
+}
+
+.placeholders--split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+}
+
+.placeholder {
+  height: 720px;
+  width: 1680px;
+  background: #ffffff;
+  border-radius: 2px;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.placeholder--small {
+  height: 720px;
+}
+
+.placeholder--large {
+  height: 720px;
+}
+
+.placeholder--split-small {
+  height: 720px;
+  width: 640px;
+}
+
+.placeholder--split-large {
+  height: 720px;
+  width: 960px;
+}
+
+/* Карточки в разделе "Новое" */
+.placeholder--split-small.small-large {
+  width: 580px;
+}
+
+.placeholder--split-large.large-small {
+  width: 1060px;
+}
+
+/* Gap для раздела "Новое" */
+#new .placeholders{
+  gap: 40px;
+  row-gap: 150px;
+  margin-bottom: 150px;
+}
+
+#new .placeholders:last-child {
+  margin-bottom: 0;
+}
+
+#new .placeholders--split {
+  gap: 40px;
+  row-gap: 150px;
+}
+
+
+
+.placeholder::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 10px solid #000000;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.placeholder-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  filter: saturate(0) contrast(0.7);
+  transition: filter 0.3s ease;
+}
+
+.placeholder:hover .placeholder-image {
+  filter: saturate(1) contrast(1);
+}
+
+.placeholder::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 10px solid #000000;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Убираем box-shadow для PNG карточек */
+#featured .placeholder--one-piece,
+#featured .placeholder--batman {
+  box-shadow: none !important;
+}
+#featured .placeholder--one-piece::before,
+#featured .placeholder--batman::before {
+  border: none !important;
+  background: none !important;
+  display: none !important;
+  box-shadow: none !important;
+}
+
+/* Убираем gap для PNG карточек в Featured */
+#featured .placeholders--split {
+  gap: 0;
+}
+
+/* Наезд для PNG карточек */
+#featured .placeholder--batman {
+  margin-left: -38px;
+  z-index: 1;
+}
+
+#featured .placeholder--one-piece {
+  z-index: 2;
+}
+
+/* Убираем фон placeholder для PNG карточек */
+#featured .placeholder--one-piece,
+#featured .placeholder--batman {
+  background: none;
+}
+.placeholder--one-piece {
+  width: 533px;
+  height: 720px;
+}
+
+.placeholder--batman {
+  width: 1185px;
+  height: 720px;
+}
+
+/* Возвращаем наезд */
+#featured .placeholder--batman {
+  margin-left: -38px;
+}
+
+/* Стили для конкурса */
+.contest-container {
+  display: flex;
+  gap: 20px;
+  align-items: stretch;
+  margin: 0;
+}
+
+.contest-main {
+  flex: 1;
+  max-width: 1060px;
+}
+
+.contest-sidebar {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 75px;
+  align-items: center;
+}
+
+.contest-image-wrapper {
+  width: 100%;
+  height: 300px;
+  border: 10px solid #000000;
+  border-radius: 0;
+  overflow: hidden;
+  position: relative;
+  transform: rotate(-5deg);
+  box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.contest-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.contest-image .contest-image,
+.contest-image-wrapper .contest-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.contest-image .placeholder-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.contest-button {
+  background: #FFCD00;
+  color: #000;
+  border: none;
+  padding: 12px 24px;
+  width: 530px;
+  height: 100px;
+  font-size: 55px;
+  font-weight: 600;
+  font-family: "Alumni Sans", sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.contest-button:hover {
+  background: #fff;
+  transform: translateY(-2px);
+}
+
+.placeholder--one-piece::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 446px;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 65%,
+    rgba(0, 0, 0, 0.85) 85%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.placeholder--batman::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 65%,
+    rgba(0, 0, 0, 0.85) 85%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.placeholder::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 65%,
+    rgba(0, 0, 0, 0.85) 85%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.placeholder-content {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 2;
+}
+
+.placeholder-date {
+  color: #ffffff;
+  font-size: 40px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  margin-bottom: 0;
+  order: 1;
+}
+
+.placeholder-title {
+  color: #FFCD00;
+  font-size: 55px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  margin: 0;
+  order: 2;
+  line-height: 1.1;
+  max-width: 100%;
+}
+
+.site-footer {
+  border-top: 1px solid var(--line);
+  background: var(--bg);
+}
+
+.footer__inner {
+  padding: 22px 0;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--gutter);
+  align-items: start;
+}
+
+.footer-row {
+  display: grid;
+  grid-template-columns: auto 1fr 1fr 1fr;
+  gap: var(--gutter);
+  align-items: start;
+}
+
+.footer-brand {
+  align-self: start;
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-brand-column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.footer-social {
+  display: flex;
+  gap: 12px;
+}
+
+.footer-social .social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  transition: all 0.3s ease;
+}
+
+.footer-social .social-link:hover {
+  transform: translateY(-2px);
+}
+
+.social-icon {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+.footer-social .social-icon {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+.footer-col {
+  min-width: 0;
+}
+
+.footer-title {
+  margin: 0 0 12px;
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.footer-title__link {
+  display: inline-block;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.footer-title__link:hover {
+  text-decoration: underline;
+}
+
+.footer-title__link:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.45);
+  outline-offset: 4px;
+  border-radius: 6px;
+}
+
+.footer-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 10px;
+  font-family: "IBM Plex Sans", "Alumni Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 27px;
+  letter-spacing: 0.02em;
+}
+
+.footer-list a {
+  color: var(--muted);
+}
+
+.placeholders {
+  display: grid;
+  gap: 40px;
+  margin-top: 18px;
+  position: relative;
+}
+
+.footer-list a:hover {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.placeholder--overlay {
+  position: relative;
+}
+
+.placeholder-image--overlay {
+  position: absolute;
+  width: 500px;
+  height: 300px;
+  object-fit: cover;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.placeholder-image--bottom-right {
+  bottom: 20px;
+  right: 20px;
+}
+
+.placeholder-image--bottom-right:nth-of-type(3) {
+  bottom: 20px;
+  right: 530px;
+}
+
+/* Flexbox структура для overlay */
+.placeholders--with-overlay {
+  display: flex;
+  gap: 40px;
+  align-items: flex-end;
+}
+
+.overlay-container {
+  display: flex;
+  gap: 80px;
+  align-items: flex-end;
+  margin-right: 20px;
+}
+
+.overlay-image {
+  width: 500px;
+  height: 300px;
+  object-fit: cover;
+  border: 10px solid #000000;
+}
+
+.overlay-image:first-child {
+  transform: rotate(-5deg);
+}
+
+.overlay-image:nth-child(2) {
+  transform: rotate(-20deg);
+}
+
+.overlay-image:hover {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.placeholder--overlay .placeholder-content {
+  z-index: 2;
+}
+
+.placeholder:hover .placeholder-image--overlay {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.footer-copy {
+  display: block;
+  margin-top: 18px;
+}
+
+/* ===== ДОПОЛНИТЕЛЬНЫЕ СТИЛИ RETRONOVA ===== */
+
+/* Фоновые изображения для разных страниц */
+body {
+    background-image: url('../assets/images/bg/add.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+}
+
+.bg-main {
+  background-image: url('../assets/images/bg/main.jpg');
+background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bg-production {
+  background-image: url('../assets/images/bg/add.jpg');
+background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Хлебные крошки */
+.breadcrumbs-list {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 40px;
+  font-weight: 600;
+}
+
+.breadcrumbs-list li {
+  color: #666;
+}
+
+.breadcrumbs-list li:not(:last-child)::after {
+  content: "/";
+  margin-left: 8px;
+  color: #666;
+}
+
+.breadcrumbs-list li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.breadcrumbs-list li[aria-current="page"] {
+  color: #fff;
+  font-weight: 600;
+}
+
+/* Убираем горизонтальный скролл от fixed/absolute элементов */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+/* Убираем фон у хедера и футера */
+.site-header {
+  background: transparent;
+}
+
+.site-footer {
+  background: transparent;
+  border-top: none;
+}
+
+/* Wrapper для карточки с overlay */
+.placeholder-wrapper {
+  position: relative;
+}
+
+/* ===== OVERLAY STYLES ===== */
+
+/* Базовые стили для overlay-stack */
+.overlay-stack {
+  position: absolute;
+  bottom: 0;
+  right: -200px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Позиционирование для Competition - привязка к низу карточки */
+.contest-main .overlay-stack {
+  right: -100px;
+}
+
+/* Белый текст для заголовков конкурса и производства */
+.contest-title-white .placeholder-title {
+  color: #ffffff;
+}
+
+/* Наложение 20% - первое изображение наезжает на второе */
+.overlay-stack .overlay-img:first-child {
+  margin-right: -100px;
+}
+
+/* Базовые стили для overlay изображений */
+.overlay-img {
+  width: 500px;
+  height: 300px;
+  object-fit: cover;
+  border: 10px solid #000000;
+  filter: saturate(0) contrast(0.7);
+  pointer-events: auto;
+}
+
+/* Повороты и z-index */
+.overlay-rotate-left {
+  transform: rotate(-20deg);
+  z-index: 1;
+}
+
+.overlay-rotate-right {
+  transform: rotate(-5deg);
+  z-index: 2;
+}
+
+/* Hover эффекты */
+.placeholder-wrapper:hover .overlay-stack .overlay-img,
+.placeholder-with-overlay:hover + .overlay-stack .overlay-img,
+.overlay-stack:hover .overlay-img {
+  filter: saturate(1) contrast(1);
+  transition: filter 0.3s ease;
+}
+
+/* Прямоугольник с текстом на карточке Простоквашино */
+.prostokvashino-quote {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 15px 20px;
+  border-radius: 0;
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 1.2;
+  max-width: 500px;
+  text-align: left;
+  z-index: 5;
+}
+
+/* Прямоугольник с текстом на карточке Тинтина */
+.tintin-quote {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 15px 20px;
+  border-radius: 0;
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 1.2;
+  max-width: 500px;
+  text-align: left;
+  z-index: 5;
+}
+
+/* Прямоугольник с текстом на карточке Атака Титанов */
+.titan-quote {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 15px 20px;
+  border-radius: 0;
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 1.2;
+  max-width: 500px;
+  text-align: left;
+  z-index: 5;
+}
+
+/* Хлебные крошки */
+.breadcrumbs-list {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 40px;
+  font-weight: 600;
+}
+
+.breadcrumbs-list li {
+  color: #666;
+}
+
+.breadcrumbs-list li:not(:last-child)::after {
+  content: "/";
+  margin-left: 8px;
+  color: #666;
+}
+
+.breadcrumbs-list li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.breadcrumbs-list li[aria-current="page"] {
+  color: #fff;
+  font-weight: 600;
+}
+
+/* Убираем горизонтальный скролл от fixed/absolute элементов */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+/* Стили для страницы О нас */
+.about-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.about-intro {
+  font-size: 22px;
+  line-height: 1.7;
+  margin-bottom: 50px;
+  color: #333;
+  font-weight: 500;
+}
+
+.about-section {
+  margin-bottom: 50px;
+}
+
+.about-title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #000;
+}
+
+.about-text {
+  font-size: 20px;
+  line-height: 1.7;
+  margin-bottom: 20px;
+  color: #333;
+  font-weight: 400;
+}
+
+.about-values {
+  margin-bottom: 50px;
+}
+
+.value-item {
+  margin-bottom: 40px;
+  padding: 25px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  border-left: 5px solid #007bff;
+}
+
+.value-item h4 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 18px;
+  color: #007bff;
+}
+
+.value-item p {
+  font-size: 20px;
+  line-height: 1.7;
+  margin-bottom: 0;
+  color: #333;
+  font-weight: 400;
+}
+
+.about-advantages {
+  background: #e9ecef;
+  padding: 40px;
+  border-radius: 10px;
+  margin-bottom: 50px;
+}
+
+.about-advantages .about-title {
+  color: #007bff;
+}
+
+.about-advantages .about-text:last-child {
+  margin-bottom: 0;
+}
+
+/* Адаптивность для страницы О нас */
+@media (max-width: 768px) {
+  .about-content {
+    padding: 0 20px;
+  }
+  
+  .about-intro,
+  .about-text {
+    font-size: 18px;
+    line-height: 1.6;
+  }
+  
+  .about-title {
+    font-size: 24px;
+  }
+  
+  .value-item {
+    padding: 20px;
+  }
+  
+  .value-item h4 {
+    font-size: 20px;
+  }
+  
+  .about-advantages {
+    padding: 25px;
+  }
+}
+
+/* АДАПТИВНЫЕ КАРТОЧКИ */
+@media (min-width: 1750px) {
+  .container {
+    width: 1680px;
+    max-width: 1680px;}
+
+.footer-title__link {
+    font-size: 55px;
+}
+  }
+
+
+@media (min-width: 1350px) and (max-width: 1749px) {
+  /* КОНТЕЙНЕР 1280px */
+  .container {
+    width: 1280px !important;
+    max-width: 1280px !important;
+  }
+  
+  /* КАРТОЧКИ 76.19% */
+  .placeholder {
+    width: 1279px !important;  /* 1680 * 0.7619 */
+    height: 549px !important;  /* 720 * 0.7619 */
+  }
+  
+  .placeholder--split-small {
+    width: 488px !important;   /* 640 * 0.7619 */
+    height: 549px !important;
+  }
+  
+  .placeholder--split-large {
+    width: 731px !important;   /* 960 * 0.7619 */
+    height: 549px !important;
+  }
+  
+  .placeholder--split-small.small-large {
+    width: 442px !important;   /* 580 * 0.7619 */
+  }
+  
+  .placeholder--split-large.large-small {
+    width: 808px !important;   /* 1060 * 0.7619 */
+  }
+  
+  /* GAPS */
+  .placeholders {
+    gap: 114px !important;     /* 150 * 0.7619 */
+  }
+  
+  #new .placeholders {
+    row-gap: 114px !important;
+    margin-bottom: 114px !important;
+  }
+  
+  .placeholders--split {
+    gap: 61px !important;      /* 80 * 0.7619 */
+  }
+  
+  /* OVERLAY */
+  .overlay-img {
+    width: 381px !important;   /* 500 * 0.7619 */
+    height: 228px !important;  /* 300 * 0.7619 */
+    border-width: 7.6px !important;
+  }
+  
+  .overlay-stack {
+    right: -152px !important;  /* -200 * 0.7619 */
+  }
+  
+  .overlay-stack .overlay-img:first-child {
+    margin-right: -76px !important;
+  }
+  
+  /* КОНКУРС */
+  .contest-button {
+    width: 404px !important;
+    height: 76px !important;
+    font-size: 42px !important;
+    padding: 9px 18px !important;
+  }
+  
+  .contest-image-wrapper {
+    height: 228px !important;
+  }
+}
+
+/* МОБИЛЬНЫЙ (<1350px) */
+@media (max-width: 1349px) {
+  .container {
+    width: 100% !important;
+    max-width: 1200px !important;
+    padding: 0 20px;
+  }
+}
+
+/* АДАПТИВНЫЕ КАРТОЧКИ */
+@media (min-width: 1750px) {
+  .container {
+    width: 1680px;
+    max-width: 1680px;
+  }
+}
+
+@media (min-width: 1350px) and (max-width: 1749px) {
+  /* КОНТЕЙНЕР 1280px */
+  .container {
+    width: 1280px !important;
+    max-width: 1280px !important;
+  }
+  
+  /* КАРТОЧКИ 76.19% */
+  .placeholder {
+    width: 1279px !important;  /* 1680 * 0.7619 */
+    height: 549px !important;  /* 720 * 0.7619 */
+  }
+  
+  .placeholder--split-small {
+    width: 488px !important;   /* 640 * 0.7619 */
+    height: 549px !important;
+  }
+  
+  .placeholder--split-large {
+    width: 731px !important;   /* 960 * 0.7619 */
+    height: 549px !important;
+  }
+  
+  .placeholder--split-small.small-large {
+    width: 442px !important;   /* 580 * 0.7619 */
+  }
+  
+  .placeholder--split-large.large-small {
+    width: 808px !important;   /* 1060 * 0.7619 */
+  }
+  
+  /* GAPS */
+  .placeholders {
+    gap: 114px !important;     /* 150 * 0.7619 */
+  }
+  
+  #new .placeholders {
+    row-gap: 114px !important;
+    margin-bottom: 114px !important;
+  }
+  
+  .placeholders--split {
+    gap: 61px !important;      /* 80 * 0.7619 */
+  }
+  
+  /* OVERLAY */
+  .overlay-img {
+    width: 381px !important;   /* 500 * 0.7619 */
+    height: 228px !important;  /* 300 * 0.7619 */
+    border-width: 7.6px !important;
+  }
+  
+  .overlay-stack {
+    right: -152px !important;  /* -200 * 0.7619 */
+  }
+  
+  .overlay-stack .overlay-img:first-child {
+    margin-right: -76px !important;
+  }
+  
+  /* КОНКУРС */
+  .contest-button {
+    width: 404px !important;
+    height: 76px !important;
+    font-size: 42px !important;
+    padding: 9px 18px !important;
+  }
+  
+  .contest-image-wrapper {
+    height: 228px !important;
+  }
+}
+
+/* ═════════════════════════════════════════════════════════════
+                    МОБИЛЬНЫЙ АДАПТИВ < 1350px (до 800px) 
+   Контейнер 768px | Split в 2 колонки | Пропорциональное уменьшение
+════════════════════════════════════════════════════════════════ */
+
+/* 800-1349px: Контейнер 768px */
+@media (min-width: 800px) and (max-width: 1349px) {
+  .container {
+    width: 768px !important;
+    max-width: 768px !important;
+    padding: 0 20px;
+  }
+  
+  /* Карточки 45.7% от оригинала (768/1680) */
+  .placeholder {
+    width: 768px !important;
+    height: 429px !important;  /* 720 * 0.596 */
+  }
+  
+  .placeholder--split-small {
+    width: 369px !important;   /* 620 * 0.596 */
+    height: 429px !important;
+  }
+  
+  .placeholder--split-large {
+    width: 554px !important;   /* 930 * 0.596 */
+    height: 429px !important;
+  }
+  
+  .placeholder--split-small.small-large {
+    width: 334px !important;   /* 560 * 0.596 */
+  }
+  
+  .placeholder--split-large.large-small {
+    width: 632px !important;   /* 1060 * 0.596 */
+  }
+  
+  /* Gaps */
+  .placeholders { gap: 89px !important; }
+  .placeholders--split { gap: 48px !important; }
+  #new .placeholders { row-gap: 89px !important; margin-bottom: 89px !important; }
+  
+  /* Overlay */
+  .overlay-img {
+    width: 298px !important;
+    height: 179px !important;
+    border-width: 6px !important;
+  }
+  .overlay-stack { right: -119px !important; }
+  .overlay-stack .overlay-img:first-child { margin-right: -60px !important; }
+  
+  /* Конкурс */
+  .contest-button {
+    width: 316px !important;
+    height: 60px !important;
+    font-size: 33px !important;
+    padding: 7px 14px !important;
+  }
+  .contest-image-wrapper { height: 179px !important; }
+}
+
+/* <800px: Полная мобильная версия */
+@media (max-width: 799px) {
+  .container {
+    width: 100% !important;
+    max-width: 360px !important;
+    padding: 0 16px !important;
+  }
+  
+  .page { padding: 20px 0 50px !important; }
+  .section { margin-top: 50px !important; }
+  
+  /* Split остается 2 колонки */
+  .placeholders, .placeholders--split {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 16px !important;
+  }
+  
+  .placeholder {
+    height: 180px !important;
+  }
+  .placeholder--split-small,
+  .placeholder--split-large {
+    width: 100% !important;
+    height: 180px !important;
+  }
+  
+  /* Скрываем quotes и overlay */
+  .prostokvashino-quote,
+  .tintin-quote,
+  .titan-quote { display: none !important; }
+  
+  .overlay-stack { display: none !important; }
+  
+  /* Конкурс */
+  .contest-container {
+    flex-direction: column-reverse !important;
+    gap: 24px !important;
+  }
+  .contest-button {
+    width: 100% !important;
+    height: 52px !important;
+    font-size: 24px !important;
+    padding: 10px 20px !important;
+  }
+  .contest-image-wrapper {
+    width: 140px !important;
+    height: 84px !important;
+    transform: none !important;
+    margin: 0 auto;
+  }
+  
+  /* Шрифты */
+  .h2 { font-size: 72px !important; line-height: 0.95 !important; }
+  .placeholder-title { font-size: 24px !important; line-height: 1.1 !important; }
+  .placeholder-date { font-size: 18px !important; }
+  .see-all { font-size: 28px !important; }
+  
+  /* Контент карточек */
+  .placeholder-content {
+    left: 12px !important;
+    bottom: 12px !important;
+    right: 12px !important;
+  }
+  
+  /* Навигация */
+  .nav {
+    font-size: 32px !important;
+    gap: 20px !important;
+    flex-wrap: wrap !important;
+  }
+  .nav--left { justify-content: center !important; }
+  .nav--right { justify-content: center !important; }
+}
+
+/* Сверхмаленькие экраны */
+@media (max-width: 359px) {
+  .placeholders, .placeholders--split { gap: 12px !important; }
+  .placeholder { height: 160px !important; }
+  .h2 { font-size: 60px !important; }
+}
+
+/* ═════════════════════════════════════════════════════════════
+                800-1349px: Контейнер 768px | Split УЗКИЙ
+══════════════════════════════════════════════════════════════ */
+@media (min-width: 800px) and (max-width: 1349px) {
+  .container {
+    width: 768px !important;
+    max-width: 768px !important;
+    padding: 0 20px;
+  }
+  
+  /* Split СУЗИМ сильнее */
+  .placeholder {
+    width: 768px !important;
+    height: 380px !important;  /* Меньше высота */
+  }
+  
+  .placeholder--split-small {
+    width: 340px !important;   /* Было 369px → СУЗИЛИ */
+    height: 380px !important;
+  }
+  
+  .placeholder--split-large {
+    width: 428px !important;   /* Было 554px → СУЗИЛИ */
+    height: 380px !important;
+  }
+  
+  .placeholder--split-small.small-large {
+    width: 310px !important;   /* Было 334px → СУЗИЛИ */
+  }
+  
+  .placeholder--split-large.large-small {
+    width: 458px !important;   /* Было 632px → СУЗИЛИ */
+  }
+  
+  /* Gaps */
+  .placeholders { gap: 60px !important; }
+  .placeholders--split { gap: 28px !important; }
+  #new .placeholders { row-gap: 60px !important; margin-bottom: 60px !important; }
+  
+  /* Конкурс */
+  .contest-button {
+    width: 290px !important;
+    height: 54px !important;
+    font-size: 30px !important;
+    padding: 6px 12px !important;
+  }
+}
+
+/* ═════════════════════════════════════════════════════════════
+                    <800px: МОБАЙЛ + АДАПТИВНЫЙ ФУТЕР
+══════════════════════════════════════════════════════════════ */
+@media (max-width: 799px) {
+  .container {
+    width: 100% !important;
+    max-width: 360px !important;
+    padding: 0 16px !important;
+  }
+  
+  /* МОБАЙЛ КАРТОЧКИ */
+  .page { padding: 20px 0 50px !important; }
+  .section { margin-top: 50px !important; }
+  
+  .placeholders, .placeholders--split {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 12px !important;
+  }
+  
+  .placeholder { height: 160px !important; }
+  .placeholder--split-small,
+  .placeholder--split-large { 
+    width: 100% !important; 
+    height: 160px !important; 
+  }
+  
+  /* СКРЫВАЕМ */
+  .prostokvashino-quote,
+  .tintin-quote,
+  .titan-quote { display: none !important; }
+  .overlay-stack { display: none !important; }
+  
+  /* ШРИФТЫ */
+  .h2 { font-size: 64px !important; line-height: 0.95 !important; }
+  .placeholder-title { font-size: 20px !important; line-height: 1.1 !important; }
+  .placeholder-date { font-size: 16px !important; }
+  .see-all { font-size: 24px !important; }
+  
+  /* НАВИГАЦИЯ */
+  .nav {
+    font-size: 28px !important;
+    gap: 16px !important;
+    flex-wrap: wrap !important;
+  }
+  .nav--left, .nav--right { justify-content: center !important; }
+  
+  /* КОНКУРС */
+  .contest-container { flex-direction: column-reverse !important; gap: 20px !important; }
+  .contest-button {
+    width: 100% !important;
+    height: 48px !important;
+    font-size: 20px !important;
+    padding: 8px 16px !important;
+  }
+  .contest-image-wrapper {
+    width: 120px !important;
+    height: 72px !important;
+    transform: none !important;
+    margin: 0 auto;
+  }
+}
+
+/* ═════════════════════════════════════════════════════════════
+                    МОБИЛЬНЫЙ ФУТЕР <800px
+══════════════════════════════════════════════════════════════ */
+@media (max-width: 799px) {
+  .footer__inner {
+    padding: 30px 0 20px !important;
+  }
+  
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 30px !important;
+  }
+  
+  .footer-row {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+    justify-items: center;
+  }
+  
+  .footer-brand-column {
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 16px !important;
+    margin-bottom: 20px !important;
+  }
+  
+  .brand-logo {
+    height: 60px !important;
+  }
+  
+  .footer-social {
+    gap: 8px !important;
+  }
+  
+  .footer-social .social-link {
+    width: 40px !important;
+    height: 40px !important;
+  }
+  
+  .footer-social .social-icon {
+    width: 28px !important;
+    height: 28px !important;
+  }
+  
+  .footer-col {
+    text-align: center !important;
+  }
+  
+  .footer-title {
+    font-size: 28px !important;
+    margin-bottom: 12px !important;
+  }
+  
+  .footer-list {
+    font-size: 16px !important;
+    gap: 8px !important;
+    line-height: 1.4 !important;
+  }
+  
+  .footer-column {
+    display: none !important; /* Убираем доп колонку */
+  }
+}
+
+/* СВЕРХМАЛЕНЬКИЕ */
+@media (max-width: 359px) {
+  .placeholders, .placeholders--split { gap: 10px !important; }
+  .placeholder { height: 150px !important; }
+  .footer-title { font-size: 24px !important; }
+  .footer-list { font-size: 15px !important; }
+}
+
+/* ══════════════════════════════════════════════════════════════
+                ПЛАНШЕТ 800-1349px: Футер в столбик
+══════════════════════════════════════════════════════════════ */
+@media (min-width: 800px) and (max-width: 1349px) {
+  /* Футер в столбик */
+  .footer__inner {
+    padding: 40px 0 !important;
+  }
+  
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+  }
+  
+  .footer-row {
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 24px !important;
+    justify-items: center;
+  }
+  
+  .footer-brand-column {
+    grid-column: 1 / -1 !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 20px !important;
+    margin-bottom: 20px !important;
+  }
+  
+  .brand-logo {
+    height: 100px !important;
+  }
+  
+  .footer-social {
+    gap: 12px !important;
+  }
+  
+  .footer-social .social-link {
+    width: 48px !important;
+    height: 48px !important;
+  }
+  
+  .footer-title {
+    font-size: 44px !important; /* Было 55px */
+  }
+  
+  .footer-list {
+    font-size: 20px !important;
+    gap: 12px !important;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════
+                МОБАЙЛ <800px: Футер в столбик + мелкие шрифты
+══════════════════════════════════════════════════════════════ */
+@media (max-width: 799px) {
+  /* Футер полностью в столбик */
+  .footer__inner {
+    padding: 30px 0 20px !important;
+  }
+  
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 30px !important;
+  }
+  
+  .footer-row {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+    justify-items: center;
+  }
+  
+  .footer-brand-column {
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 16px !important;
+    margin-bottom: 20px !important;
+  }
+  
+  .brand-logo {
+    height: 60px !important;
+  }
+  
+  .footer-social {
+    gap: 8px !important;
+  }
+  
+  .footer-social .social-link {
+    width: 40px !important;
+    height: 40px !important;
+  }
+  
+  .footer-social .social-icon {
+    width: 28px !important;
+    height: 28px !important;
+  }
+  
+  .footer-col {
+    text-align: center !important;
+  }
+  
+  .footer-title {
+    font-size: 36px !important; /* 55px / 1.5 ≈ 36px */
+  }
+  
+  .footer-list {
+    font-size: 16px !important;
+    gap: 8px !important;
+    line-height: 1.4 !important;
+  }
+  
+  .footer-column {
+    display: none !important;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════
+                ЗАГОЛОВКИ футера после 1750px - 55px → 40px
+══════════════════════════════════════════════════════════════ */
+@media (min-width: 1750px) {
+  .footer-title {
+    font-size: 40px !important; /* Было 55px → 40px */
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════
+                БЕЛЫЕ ЗАГОЛОВКИ h1, h2 -1.2x на всех экранах
+══════════════════════════════════════════════════════════════ */
+@media (max-width: 1349px) {
+  .h1 {
+    font-size: calc(64px / 1.2) !important; /* 53px */
+  }
+  
+  .h2 {
+    font-size: calc(200px / 1.2) !important; /* 167px */
+  }
+  
+  .placeholder-title {
+    font-size: calc(55px / 1.2) !important; /* 46px */
+  }
+  
+  .placeholder-date {
+    font-size: calc(40px / 1.2) !important; /* 33px */
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════
+                ЗАГОЛОВКИ -1.3x до 1280px
+══════════════════════════════════════════════════════════════ */
+@media (max-width: 1280px) {
+  .h1 {
+    font-size: calc(64px / 1.3) !important; /* 49px */
+  }
+  
+  .h2 {
+    font-size: calc(200px / 1.3) !important; /* 154px */
+  }
+  
+  .placeholder-title {
+    font-size: calc(55px / 1.3) !important; /* 42px */
+  }
+  
+  .placeholder-date {
+    font-size: calc(40px / 1.3) !important; /* 31px */
+  }
+}
+
+/* СВЕРХМАЛЕНЬКИЕ */
+@media (max-width: 359px) {
+  .footer-title { font-size: 28px !important; }
+  .footer-list { font-size: 15px !important; }
+}
+
+/* ══════════════════════════════════════════════════════════════
+                    МОБИЛЬНАЯ ВЕРСИЯ < 800px
+══════════════════════════════════════════════════════════════ */
+@media (max-width: 799px) {
+  /* Контейнер */
+  .container {
+    width: 100% !important;
+    max-width: 360px !important;
+    padding: 0 16px !important;
+  }
+  
+  /* Отступы */
+  .page { padding: 16px 0 40px !important; }
+  .section { margin-top: 40px !important; }
+  
+  /* Заголовки */
+  .h1 { font-size: 32px !important; }
+  .h2 { font-size: 64px !important; }
+  
+  /* Карточки */
+  .placeholders, .placeholders--split {
+    grid-template-columns: 1fr !important;
+  }
+  .placeholder { 
+    width: 328px !important;
+    height: 180px !important; 
+  }
+  .placeholder--split-small,
+  .placeholder--split-large { 
+    width: 100% !important; 
+    height: 180px !important; 
+  }
+  
+  /* Тексты в карточках */
+  .placeholder-title { 
+    font-size: 18px !important; 
+    line-height: 1.2 !important;
+  }
+  .placeholder-date { font-size: 14px !important; }
+  .see-all { font-size: 20px !important; }
+  
+  /* Контент карточек */
+  .placeholder-content {
+    left: 12px !important;
+    bottom: 12px !important;
+    right: 12px !important;
+  }
+  
+  /* Скрываем сложные элементы */
+  .prostokvashino-quote,
+  .tintin-quote,
+  .titan-quote { display: none !important; }
+  .overlay-stack { display: none !important; }
+  
+  /* Навигация компактная */
+  .nav {
+    font-size: 24px !important;
+    gap: 16px !important;
+    flex-wrap: wrap !important;
+  }
+  
+  /* Конкурс */
+  .contest-button {
+    width: 100% !important;
+    height: 48px !important;
+    font-size: 20px !important;
+  }
+  
+  .contest-image-wrapper {
+    width: 120px !important;
+    height: 72px !important;
+  }
+}
+
+/* Сверхмаленькие экраны */
+@media (max-width: 359px) {
+  .h2 { font-size: 48px !important; }
+  .placeholder { height: 150px !important; }
+  .nav { font-size: 20px !important; gap: 12px !important; }
+}
+
+/* Стили для статьи */
+article main {
+  font-family: "IBM Plex Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+article main h1,
+article main h2,
+article main h3,
+article main h4,
+article main h5,
+article main h6 {
+  font-family: "Alumni Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+article main p,
+article main b,
+article main strong,
+article main span,
+article main div {
+  font-family: "IBM Plex Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+/* Абзацы в статье */
+article p {
+  font-family: "IBM Plex Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+/* Весь текст в статье кроме заголовков */
+article main *:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
+  font-family: "IBM Plex Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif !important;
+}
+
+/* Хлебные крошки черные на всех страницах */
+.breadcrumbs a {
+  color: #000 !important;
+}
+
+.breadcrumbs li {
+  color: #000 !important;
+}
+
+.breadcrumbs-list li {
+  color: #000 !important;
+}
+
+/* Разделитель / в хлебных крошках */
+.breadcrumbs-list li::after {
+  color: #000 !important;
+}
+
+.breadcrumbs li::after {
+  color: #000 !important;
+}
+
+/* Убираем понижение контрастности и насыщенности на странице статьи */
+article {
+  filter: none !important;
+}
+
+article * {
+  filter: none !important;
+}
+
+article img {
+  filter: none !important;
+  opacity: 1 !important;
+}
+
+article .placeholder {
+  filter: none !important;
+}
+
+article .placeholder-image {
+  filter: none !important;
+  opacity: 1 !important;
+}
+
+/* Белый текст для всех карточек в статье */
+article .placeholder-content {
+  color: #fff !important;
+}
+
+article .placeholder-title {
+  color: #fff !important;
+}
+
+article .placeholder-date {
+  color: #fff !important;
+}
+
+/* Убираем понижение контраста для всех карточек в статье */
+article .placeholder {
+  filter: none !important;
+  -webkit-filter: none !important;
+}
+
+article .placeholder-image {
+  filter: none !important;
+  -webkit-filter: none !important;
+  opacity: 1 !important;
+}
+
+/* Полное удаление всех фильтров для placeholders и фото в статье */
+article .placeholders {
+  filter: none !important;
+  -webkit-filter: none !important;
+}
+
+article .placeholders * {
+  filter: none !important;
+  -webkit-filter: none !important;
+}
+
+article .placeholder img {
+  filter: none !important;
+  -webkit-filter: none !important;
+  opacity: 1 !important;
+  -webkit-opacity: 1 !important;
+}
+
+article .placeholders img {
+  filter: none !important;
+  -webkit-filter: none !important;
+  opacity: 1 !important;
+  -webkit-opacity: 1 !important;
+}
+
+/* Убираем любые CSS фильтры и эффекты */
+article .placeholder,
+article .placeholder *,
+article .placeholders,
+article .placeholders * {
+  filter: none !important;
+  -webkit-filter: none !important;
+  opacity: 1 !important;
+  -webkit-opacity: 1 !important;
+}

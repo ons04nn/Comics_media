@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RetroNova</title>
+  <meta name="description" content="Проект RetroNova" />
+
+  <link rel="icon" href="./assets/icons/fav/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="./index.css" />
+  <script src="./index.js" defer></script>
+</head>
+<body class="bg-main">
+  <div id="root"></div>
+  <a class="skip-link" href="#content">Перейти к контенту</a>
+
+  <header class="site-header">
+    <div class="container header__inner">
+      <nav class="nav nav--left" aria-label="Навигация слева">
+        <a href="./production.html">Производство</a>
+        <a href="./region.html">Регион</a>
+      </nav>
+
+      <a class="brand" href="./index.html" aria-label="RetroNova">
+        <img src="./assets/logo/logo.svg" alt="RetroNova" class="brand-logo">
+      </a>
+
+      <nav class="nav nav--right" aria-label="Навигация справа">
+        <a href="./era.html">Эпоха</a>
+        <a href="./publisher.html">Издатель</a>
+        <div class="social-links">
+          <a href="#" class="social-link social-link--white">
+            <img src="./assets/icons/vk_b.svg" alt="VK" class="social-icon">
+          </a>
+          <a href="#" class="social-link social-link--black">
+            <img src="./assets/icons/tg_b.svg" alt="Telegram" class="social-icon">
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="content" class="page">
+    <section id="featured" class="container section">
+      <div class="placeholders placeholders--split">
+        <a href="./article.html" class="placeholder placeholder--split-small placeholder--one-piece" aria-hidden="true">
+          <img src="./assets/images/home/one-piece-the-story-that-conquered-the-world.png" alt="One Piece" class="placeholder-image">
+          <div class="placeholder-content">
+            <div class="placeholder-date">06.03</div>
+            <h2 class="placeholder-title">One Piece, история, которая покорила мир</h2>
+          </div>
+        </a>
+        <div class="placeholder placeholder--split-large placeholder--batman" aria-hidden="true">
+          <img src="./assets/images/home/batman-character-evolution.png" alt="Batman" class="placeholder-image">
+          <div class="placeholder-content">
+            <div class="placeholder-date">06.03</div>
+            <h2 class="placeholder-title">Бэтмен — эволюция персонажа</h2>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="universes" class="container section">
+      <div class="section-header">
+        <h2 class="h2">Вселенные</h2>
+        <a href="#" class="see-all">Смотреть все →</a>
+      </div>
+      <div class="placeholders">
+        <div class="placeholder-wrapper">
+          <div class="placeholder placeholder-with-overlay" aria-hidden="true">
+            <img src="./assets/images/home/prostokvashino/prostokvashino-cin-city.jpg" alt="Простоквашный Город Грехов" class="placeholder-image">
+            <div class="prostokvashino-quote">
+              Прошлое нельзя<br>
+              забывать, его стоит<br>
+              помнить и молиться,<br>
+              чтобы оно<br>
+              не повторилось
+            </div>
+            <div class="placeholder-content">
+              <div class="placeholder-date">06.03</div>
+              <h2 class="placeholder-title">Простоквашный город грехов</h2>
+            </div>
+          </div>
+          <div class="overlay-stack" data-for="prostokvashino">
+            <img src="./assets/images/home/prostokvashino/prostokvashino_matroskin.jpg" alt="" class="overlay-img overlay-rotate-right">
+            <img src="./assets/images/home/prostokvashino/prostokvashino_galchonok.jpg" alt="" class="overlay-img overlay-rotate-left">
+          </div>
+        </div>
+        <div class="placeholder" aria-hidden="true">
+          <img src="./assets/images/home/avengers-famous-characters-history.jpg" alt="Мстители" class="placeholder-image">
+          <div class="placeholder-content">
+            <div class="placeholder-date">06.03</div>
+            <h2 class="placeholder-title">Мстители, история известных персонажей</h2>
+          </div>
+        </div>
+        <div class="placeholder-wrapper">
+          <div class="placeholder placeholder-with-overlay" aria-hidden="true">
+            <img src="./assets/images/home/tintin/the-adventures-of-tintin.jpg" alt="Приключения Тинтина" class="placeholder-image">
+            <div class="tintin-quote">
+              Один из популярнейших<br>
+              европейских комиксов<br>
+              XX века. Его автор —<br>
+              бельгийский художник-самоучка Эрже
+            </div>
+            <div class="placeholder-content">
+              <div class="placeholder-date">06.03</div>
+              <h2 class="placeholder-title">Приключения Тинтина</h2>
+            </div>
+          </div>
+          <div class="overlay-stack" data-for="tintin">
+            <img src="./assets/images/home/tintin/tintin-poster.jpg" alt="" class="overlay-img overlay-rotate-right">
+            <img src="./assets/images/home/tintin/tintin_and_capitan.jpg" alt="" class="overlay-img overlay-rotate-left">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="new" class="container section">
+      <h2 class="h2">Новое</h2>
+      <div class="placeholders placeholders--split">
+        <div class="placeholder placeholder--split-small small-large" aria-hidden="true">
+          <img src="./assets/images/home/death-note-manga-vs-anime.jpg" alt="Тетрадь Смерти" class="placeholder-image">
+          <div class="placeholder-content">
+            <div class="placeholder-date">06.03</div>
+            <h2 class="placeholder-title">Тетрадь смерти — манга против аниме</h2>
+          </div>
+        </div>
+        <div class="placeholder placeholder--split-large large-small" aria-hidden="true">
+          <img src="./assets/images/home/sin-city-before-adaptation.jpg" alt="Город Грехов до Экранизации" class="placeholder-image">
+          <div class="placeholder-content">
+            <div class="placeholder-date">06.03</div>
+            <h2 class="placeholder-title">Город грехов до экранизации</h2>
+          </div>
+        </div>
+      </div>
+      <div class="placeholders">
+        <div class="placeholder-wrapper">
+          <div class="placeholder placeholder-with-overlay" aria-hidden="true">
+            <img src="./assets/images/home/attack-on-titan/attack-on-titan.jpg" alt="Атака Титанов" class="placeholder-image">
+            <div class="titan-quote">
+              Глубокая философская история<br>
+              о борьбе за свободу, цене<br>
+              идеалов, власти, долге,<br>
+              цикличности истории<br>
+              и природе человечества
+            </div>
+            <div class="placeholder-content">
+              <div class="placeholder-date">06.03</div>
+              <h2 class="placeholder-title">Атака Титанов</h2>
+            </div>
+          </div>
+          <div class="overlay-stack" data-for="titan">
+            <img src="./assets/images/home/attack-on-titan/attack-on-titan-add.jpg" alt="" class="overlay-img overlay-rotate-right">
+            <img src="./assets/images/home/attack-on-titan/attack-on-titan-add2.jpg" alt="" class="overlay-img overlay-rotate-left">
+          </div>
+        </div>
+      </div>
+      <div class="placeholders placeholders--split">
+        <div class="placeholder placeholder--split-large large-small" aria-hidden="true">
+          <img src="./assets/images/home/spider-man-1970s.jpg" alt="Человек-паук 70-х" class="placeholder-image">
+          <div class="placeholder-content">
+            <div class="placeholder-date">06.03</div>
+            <h2 class="placeholder-title">Человек-Паук 70-х</h2>
+          </div>
+        </div>
+        <div class="placeholder placeholder--split-small small-large" aria-hidden="true">
+          <img src="./assets/images/home/how-the-avengers-formed.jpg" alt="Как появились Мстители" class="placeholder-image">
+          <div class="placeholder-content">
+            <div class="placeholder-date">06.03</div>
+            <h2 class="placeholder-title">Как появились Мстители</h2>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contest" class="container section">
+      <h2 class="h2">Конкурс</h2>
+      <div class="contest-container">
+        <div class="contest-main">
+          <div class="placeholder placeholder--split-large contest-title-white" aria-hidden="true">
+            <img src="./assets/images/home/competition/competition.jpg" alt="Конкурс" class="placeholder-image">
+            <div class="placeholder-content">
+              <h2 class="placeholder-title">Мы ищем талантливых людей,<br>которые умеют<br>рисовать комиксы</h2>
+            </div>
+          </div>
+        </div>
+        <div class="contest-sidebar">
+          <div class="contest-image-wrapper" aria-hidden="true">
+            <img src="./assets/images/home/competition/competition_2.jpg" alt="Конкурс" class="contest-image">
+          </div>
+          <button class="contest-button">Принять участие</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="container section">
+      <div class="section-header">
+        <h2 class="h2">Производство</h2>
+        <a href="#" class="see-all">Узнать об этапах производства →</a>
+      </div>
+      <div class="placeholders">
+        <div class="placeholder-wrapper">
+          <div class="placeholder placeholder-with-overlay contest-title-white" aria-hidden="true">
+            <img src="./assets/images/home/production/production.jpg" alt="Производство" class="placeholder-image">
+            <div class="placeholder-content">
+              <h2 class="placeholder-title">Узнай обо всех этапах<br>производства комиксов<br>и аниме прямо сейчас</h2>
+            </div>
+          </div>
+          <div class="overlay-stack" data-for="production">
+            <img src="./assets/images/home/production/production-add1.jpg" alt="" class="overlay-img overlay-rotate-right">
+            <img src="./assets/images/home/production/production-add2.jpg" alt="" class="overlay-img overlay-rotate-left">
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer__inner">
+      <div class="footer-grid">
+        <div class="footer-row">
+          <div class="footer-brand-column">
+            <a class="brand footer-brand" href="#" aria-label="RetroNova">
+              <img src="./assets/logo/logo.svg" alt="RetroNova" class="brand-logo">
+            </a>
+            <div class="footer-social">
+              <a href="#" class="social-link">
+                <img src="./assets/icons/vk_w.svg" alt="VK" class="social-icon">
+              </a>
+              <a href="#" class="social-link">
+                <img src="./assets/icons/tg_w.svg" alt="Telegram" class="social-icon">
+              </a>
+            </div>
+          </div>
+
+          <section class="footer-col" aria-label="Регион">
+            <h3 class="footer-title"><a class="footer-title__link" href="./region.html">РЕГИОН</a></h3>
+            <ul class="footer-list">
+              <li><a href="./region.html">Америка</a></li>
+              <li><a href="./region.html">Япония</a></li>
+              <li><a href="./region.html">Корея</a></li>
+              <li><a href="./region.html">Россия</a></li>
+              <li><a href="./region.html">Европа</a></li>
+            </ul>
+          </section>
+
+          <section class="footer-col" aria-label="Эпоха">
+            <h3 class="footer-title"><a class="footer-title__link" href="./era.html">ЭПОХА</a></h3>
+            <ul class="footer-list">
+              <li><a href="./era.html">Золотой век</a></li>
+              <li><a href="./era.html">Серебряный век</a></li>
+              <li><a href="./era.html">Бронзовый век</a></li>
+              <li><a href="./era.html">90-е</a></li>
+              <li><a href="./era.html">00-е</a></li>
+              <li><a href="./era.html">10-е</a></li>
+              <li><a href="./era.html">20-е</a></li>
+            </ul>
+          </section>
+
+          <section class="footer-col" aria-label="Издатель">
+            <h3 class="footer-title">
+              <a class="footer-title__link" href="./publisher.html">ИЗДАТЕЛЬ</a>
+            </h3>
+            <ul class="footer-list">
+              <li><a href="./publisher.html">Marvel</a></li>
+              <li><a href="./publisher.html">DC</a></li>
+              <li><a href="./publisher.html">Kodansha</a></li>
+              <li><a href="./publisher.html">Shueisha</a></li>
+              <li><a href="./publisher.html">Shogakukan</a></li>
+              <li><a href="./publisher.html">D&amp;C Media</a></li>
+              <li><a href="./publisher.html">Kenaz</a></li>
+              <li><a href="./publisher.html">Bubble</a></li>
+            </ul>
+          </section>
+        </div>
+
+        <div class="footer-column">
+          <section class="footer-col" aria-label="Производство">
+            <h3 class="footer-title">
+              <a class="footer-title__link" href="./production.html">ПРОИЗВОДСТВО</a>
+            </h3>
+          </section>
+
+          <section class="footer-col" aria-label="О нас">
+            <h3 class="footer-title"><a class="footer-title__link" href="#">О НАС</a></h3>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <small class="muted footer-copy">RetroNova</small>
+  </footer>
+</body>
+</html>

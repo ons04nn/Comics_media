@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans:ital,wght@0,100..900;1,100..900&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+/* Font imports from HTML files */
+@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@700&display=swap');
+
+/* Base font settings */
+body {
+  font-family: "Alumni Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+/* Article typography */
+article main {
+  font-family: "IBM Plex Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+article main h1,
+article main h2,
+article main h3,
+article main h4,
+article main h5,
+article main h6 {
+  font-family: "Alumni Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+article main p,
+article main b,
+article main strong,
+article main span,
+article main div {
+  font-family: "IBM Plex Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+/* Article paragraphs */
+article p {
+  font-family: "IBM Plex Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+/* All text in articles except headers */
+article main *:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
+  font-family: "IBM Plex Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif !important;
+}
+
+/* Footer list fonts */
+.footer-list {
+  font-family: "IBM Plex Sans", "Alumni Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+/* Contest button font */
+.contest-button {
+  font-family: "Alumni Sans", sans-serif;
+}
+
+/* Breadcrumbs typography */
+.breadcrumbs-list {
+  font-size: 40px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.breadcrumbs-list a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.breadcrumbs-list a:hover {
+  text-decoration: underline;
+}
