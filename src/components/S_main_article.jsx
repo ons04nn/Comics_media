@@ -11,6 +11,45 @@ function ArticleTitle({ lines }) {
 }
 
 function ListItem({ item, index }) {
+  const hasImage = item.image !== undefined;
+  const hasText = item.html !== undefined;
+  const isFullWidth = item.align === 'full';
+
+  if (isFullWidth && hasImage) {
+    return (
+      <div className="anime-item anime-item--full">
+        <div className="anime-item-image anime-item-image--full">
+          <img src={item.image} alt="" className="anime-item-img" />
+        </div>
+        {hasText && (
+          <div className="anime-item-text anime-item-text--full">
+            <p className="article-text" dangerouslySetInnerHTML={{ __html: item.html }} />
+          </div>
+        )}
+      </div>
+    );
+  }
+
+  if (!hasImage && hasText) {
+    return (
+      <div className="anime-item anime-item--text-only">
+        <div className="anime-item-text anime-item-text--full">
+          <p className="article-text" dangerouslySetInnerHTML={{ __html: item.html }} />
+        </div>
+      </div>
+    );
+  }
+
+  if (hasImage && !hasText) {
+    return (
+      <div className="anime-item anime-item--image-only">
+        <div className="anime-item-image anime-item-image--full">
+          <img src={item.image} alt="" className="anime-item-img" />
+        </div>
+      </div>
+    );
+  }
+
   const sideClass = item.align === 'right' ? 'anime-item--right' : 'anime-item--left';
 
   return (

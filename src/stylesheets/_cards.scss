@@ -5,20 +5,25 @@
   display: grid;
   gap: 150px;
   margin-top: 18px;
+  margin-bottom: 80px;
   position: relative;
   @include scaled(gap, 150px);
   @include scaled(margin-top, 18px);
+  @include scaled(margin-bottom, 80px);
 }
 
 #universes .placeholders {
   gap: 150px;
+  margin-bottom: 80px;
 }
 
 .placeholders--split {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 80px;
+  margin-bottom: 80px;
   @include scaled(gap, 80px);
+  @include scaled(margin-bottom, 80px);
 }
 
 #new {

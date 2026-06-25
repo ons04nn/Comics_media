@@ -195,22 +195,50 @@ function buildIntro(title, subject, topic) {
   return intros[topic] ?? intros.comics;
 }
 
-function buildItems(title, subject, topic) {
+function buildItems(title, subject, topic, imageCount = 5) {
   const headings = SECTION_HEADINGS[topic] ?? SECTION_HEADINGS.comics;
+  let imageIndex = 0;
 
-  return headings.map((heading, index) => ({
-    align: index % 2 === 0 ? 'left' : 'right',
-    image: ARTICLE_LIST_IMAGES[index],
-    html: `<b>${index + 1}. ${heading}</b><br>${sectionText(topic, index, heading, title, subject)}`,
-  }));
+  // Distribute images evenly across sections
+  const imageIndices = new Set();
+  const step = Math.floor(headings.length / (imageCount + 1));
+  for (let i = 1; i <= imageCount; i++) {
+    const idx = Math.min(i * step, headings.length - 1);
+    imageIndices.add(idx);
+  }
+
+  return headings.map((heading, index) => {
+    const hasImage = imageIndices.has(index);
+    const hasText = true;
+    const isFullWidth = false;
+    const align = index % 2 === 0 ? 'left' : 'right';
+
+    const headingHtml = `<b>${heading}</b>`;
+
+    const item = {
+      align: isFullWidth ? 'full' : align,
+    };
+
+    if (hasImage) {
+      item.image = ARTICLE_LIST_IMAGES[imageIndex % ARTICLE_LIST_IMAGES.length];
+      imageIndex++;
+    }
+
+    if (hasText) {
+      const text = sectionText(topic, index, heading, title, subject);
+      item.html = `${headingHtml}<br>${text}`;
+    }
+
+    return item;
+  });
 }
 
-export function generateArticleContent({ slug, titleLines, alt, topic = 'comics' }) {
+export function generateArticleContent({ slug, titleLines, alt, topic = 'comics', imageCount = 5 }) {
   const title = titleText(titleLines);
   const subject = alt && alt !== title ? alt : title;
 
   return {
     intro: buildIntro(title, subject, topic),
-    items: buildItems(title, subject, topic),
+    items: buildItems(title, subject, topic, imageCount),
   };
 }

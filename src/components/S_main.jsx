@@ -70,7 +70,7 @@
                 </div>
                 <div className="placeholder-content">
                   <div className="placeholder-date">23.08</div>
-                  <h2 className="placeholder-title">Простоквашный город грехов</h2>
+                  <h2 className="placeholder-title">Простоквашино — город грехов</h2>
                 </div>
               </div>
               <div className="overlay-stack" data-for="prostokvashino">
