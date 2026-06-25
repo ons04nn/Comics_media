@@ -38,14 +38,14 @@
             <a href={getArticleUrl('one-piece-istoriya-kotoraya-pokorila-mir')} className="placeholder placeholder--split-small small-large" aria-hidden="true">
               <img src={placeholderFeatured1} alt="One Piece, история, которая покорила мир" className="placeholder-image" />
               <div className="placeholder-content">
-                <div className="placeholder-date">06.03</div>
+                <div className="placeholder-date">12.05</div>
                 <h2 className="placeholder-title">One Piece, история, которая покорила мир</h2>
               </div>
             </a>
             <a href={getArticleUrl('batman-evolyutsiya-personazha')} className="placeholder placeholder--split-large large-small" aria-hidden="true">
               <img src={placeholderFeatured2} alt="Бэтмен — эволюция персонажа" className="placeholder-image" />
               <div className="placeholder-content">
-                <div className="placeholder-date">06.03</div>
+                <div className="placeholder-date">18.06</div>
                 <h2 className="placeholder-title">Бэтмен — эволюция персонажа</h2>
               </div>
             </a>
@@ -69,7 +69,7 @@
                   не повторилось
                 </div>
                 <div className="placeholder-content">
-                  <div className="placeholder-date">06.03</div>
+                  <div className="placeholder-date">23.08</div>
                   <h2 className="placeholder-title">Простоквашный город грехов</h2>
                 </div>
               </div>
@@ -82,7 +82,7 @@
             <a href={getArticleUrl('mstiteli-istoriya-personazhej')} className="placeholder" aria-hidden="true">
               <img src={placeholderAvengers} alt="Мстители" className="placeholder-image" />
               <div className="placeholder-content">
-                <div className="placeholder-date">06.03</div>
+                <div className="placeholder-date">05.09</div>
                 <h2 className="placeholder-title">Мстители, история известных персонажей</h2>
               </div>
             </a>
@@ -97,7 +97,7 @@
                   бельгийский художник‑самоучка Эрже
                 </div>
                 <div className="placeholder-content">
-                  <div className="placeholder-date">06.03</div>
+                  <div className="placeholder-date">14.11</div>
                   <h2 className="placeholder-title">Приключения Тинтина</h2>
                 </div>
               </div>
@@ -115,14 +115,14 @@
             <a href={getArticleUrl('tetrad-smerti-manga-protiv-anime')} className="placeholder placeholder--split-small small-large" aria-hidden="true">
               <img src={placeholderDeathNote} alt="Тетрадь Смерти" className="placeholder-image" />
               <div className="placeholder-content">
-                <div className="placeholder-date">06.03</div>
+                <div className="placeholder-date">27.02</div>
                 <h2 className="placeholder-title">Тетрадь смерти — манга против аниме</h2>
               </div>
             </a>
             <a href={getArticleUrl('gorod-grehov-do-ekranizacii')} className="placeholder placeholder--split-large large-small" aria-hidden="true">
               <img src={placeholderSinCity} alt="Город Грехов до Экранизации" className="placeholder-image" />
               <div className="placeholder-content">
-                <div className="placeholder-date">06.03</div>
+                <div className="placeholder-date">03.04</div>
                 <h2 className="placeholder-title">Город грехов до экранизации</h2>
               </div>
             </a>
@@ -140,7 +140,7 @@
                   и природе человечества
                 </div>
                 <div className="placeholder-content">
-                  <div className="placeholder-date">06.03</div>
+                  <div className="placeholder-date">19.10</div>
                   <h2 className="placeholder-title">Атака Титанов</h2>
                 </div>
               </div>
@@ -155,14 +155,14 @@
             <a href={getArticleUrl('chelovek-pauk-70-h')} className="placeholder placeholder--split-large large-small" aria-hidden="true">
               <img src={placeholderSpiderMan} alt="Человек-паук 70-х" className="placeholder-image" />
               <div className="placeholder-content">
-                <div className="placeholder-date">06.03</div>
+                <div className="placeholder-date">07.01</div>
                 <h2 className="placeholder-title">Человек-Паук 70-х</h2>
               </div>
             </a>
             <a href={getArticleUrl('kak-poyavilis-mstiteli')} className="placeholder placeholder--split-small small-large" aria-hidden="true">
               <img src={placeholderHowAvengersFormed} alt="Как появились Мстители" className="placeholder-image" />
               <div className="placeholder-content">
-                <div className="placeholder-date">06.03</div>
+                <div className="placeholder-date">22.03</div>
                 <h2 className="placeholder-title">Как появились Мстители</h2>
               </div>
             </a>

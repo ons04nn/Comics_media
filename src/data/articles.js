@@ -60,8 +60,6 @@ import regionImg6 from '../assets/images/region/manhua-censorship-and-the-massiv
 import regionImg7 from '../assets/images/region/switzerland-and-the-netherlands.jpg';
 import regionImg8 from '../assets/images/region/siberia-and-the-far-east.jpg';
 
-const DATE = '06.03';
-
 function defineArticle(meta) {
   const titleLines = meta.articleTitleLines ?? meta.titleLines;
   const content = meta.customContent ?? generateArticleContent({
@@ -74,7 +72,7 @@ function defineArticle(meta) {
   return {
     slug: meta.slug,
     titleLines,
-    date: meta.date ?? DATE,
+    date: meta.date ?? '12.05',
     heroImage: meta.heroImage,
     heroAlt: meta.alt,
     intro: content.intro,

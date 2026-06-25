@@ -73,7 +73,6 @@ export default function S_main_article({ article }) {
           </div>
           <img src={article.heroImage} alt={article.heroAlt} className="article-hero-image" />
           <div className="article-hero-content">
-            <div className="placeholder-date">{article.date}</div>
             <h1 className="placeholder-title">
               <ArticleTitle lines={article.titleLines} />
             </h1>
