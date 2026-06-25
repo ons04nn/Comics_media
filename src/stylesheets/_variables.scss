@@ -1,0 +1,56 @@
+:root {
+  --frame: 1920px;
+  --container-wide: 1680px;
+  --container-medium: 1280px;
+  --container-scale: 1;
+  --side-wide: 120px;
+  --side-medium: 35px;
+  --gutter: 40px;
+
+  --scale-wide: 1;
+  --scale-medium: 0.7619;
+  --scale-factor: 1;
+
+  --bg: #e52a25;
+  --text: rgba(255, 255, 255, 0.92);
+  --muted: rgba(255, 255, 255, 0.7);
+  --line: rgba(255, 255, 255, 0.16);
+  --panel: rgba(255, 255, 255, 0.06);
+
+  --color-black: #000;
+  --color-white: #fff;
+  --color-accent: #ffcd00;
+  --card-border: 10px solid var(--color-black);
+  --card-height: 720px;
+  --card-width: 1680px;
+
+  // Spacing scale (8px base)
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 32px;
+  --space-xl: 40px;
+  --space-2xl: 60px;
+  --space-3xl: 80px;
+  --space-4xl: 112px;
+  --space-5xl: 150px;
+
+  // Font size scale
+  --font-xs: 12px;
+  --font-sm: 14px;
+  --font-base: 16px;
+  --font-md: 18px;
+  --font-lg: 20px;
+  --font-xl: 24px;
+  --font-2xl: 28px;
+  --font-3xl: 32px;
+  --font-4xl: 40px;
+  --font-5xl: 55px;
+  --font-6xl: 64px;
+}
+
+@media (min-width: 1350px) and (max-width: 1749px) {
+  :root {
+    --scale-factor: var(--scale-medium);
+  }
+}

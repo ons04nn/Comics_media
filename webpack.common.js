@@ -26,26 +26,38 @@ function getHtmlPages(dir) {
 // список всех HTML-файлов
 const htmlFiles = getHtmlPages(path.resolve(__dirname, 'src'));
 
+const entries = {
+  index: './src/index.js',
+  production: './src/production.js',
+  era: './src/era.js',
+  publisher: './src/publisher.js',
+  region: './src/region.js',
+  article: './src/article.js',
+};
+
 // создаём массив HtmlWebpackPlugin
 const htmlPlugins = htmlFiles.map(filePath => {
   const filename = path.relative(path.resolve(__dirname, 'src'), filePath);
-  return new HtmlWebpackPlugin({
+  const baseName = path.basename(filename, '.html');
+  const pluginOptions = {
     template: filePath,
     filename
-  });
+  };
+
+  if (entries[baseName]) {
+    pluginOptions.chunks = [baseName];
+  }
+
+  return new HtmlWebpackPlugin(pluginOptions);
 });
 
-
-
-
 module.exports = {
-  entry: {
-    index: './src/index.js'
-  },
+  entry: entries,
   output: {
-    filename: '[name].js',
+    filename: '[name].[contenthash].js',
     path: path.resolve(__dirname, 'docs'),
-    clean: true
+    clean: true,
+    assetModuleFilename: 'assets/[name].[hash][ext][query]'
   },
   module: {
     rules: [
@@ -55,24 +67,33 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env', '@babel/preset-react'],
+            presets: [
+              ['@babel/preset-env', {
+                targets: {
+                  esmodules: true
+                },
+                modules: false
+              }],
+              ['@babel/preset-react', {
+                runtime: 'automatic'
+              }]
+            ],
             plugins: ['@babel/plugin-proposal-class-properties']
           }
         }
       },
       {
-        test: /\.(sa|sc|c)ss$/i,
+        test: /\.s[ac]ss$/i,
         use: [
           MiniCssExtractPlugin.loader,
-          'css-loader',
           {
-            loader: 'postcss-loader',
+            loader: 'css-loader',
             options: {
-              postcssOptions: {
-                plugins: [['postcss-preset-env']]
-              }
+              importLoaders: 2,
+              modules: false
             }
           },
+          'postcss-loader',
           'sass-loader'
         ]
       },
@@ -85,7 +106,14 @@ module.exports = {
         type: 'asset/source'
       },
       {
-        test: /\.(png|jpg|jpeg|gif|svg|webp)$/i,
+        test: /\.(png|jpg|jpeg|gif|webp)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'images/[hash][ext][query]'
+        }
+      },
+      {
+        test: /\.svg$/i,
         type: 'asset/resource',
         generator: {
           filename: 'images/[hash][ext][query]'
@@ -93,9 +121,9 @@ module.exports = {
       },
       {
         test: /\.(ttf|otf|woff|woff2)$/i,
-        loader: 'file-loader',
-        options: {
-          name: 'fonts/[name].[ext]'
+        type: 'asset/resource',
+        generator: {
+          filename: 'fonts/[name].[hash][ext]'
         }
       }
     ]
@@ -118,9 +146,30 @@ module.exports = {
   ])
 ],
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
+    alias: {
+      '@': path.resolve(__dirname, 'src'),
+      '@components': path.resolve(__dirname, 'src/components'),
+      '@assets': path.resolve(__dirname, 'src/assets'),
+      '@styles': path.resolve(__dirname, 'src/stylesheets')
+    }
   },
   optimization: {
-    minimizer: []
+    splitChunks: {
+      chunks: 'all',
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all',
+        },
+        common: {
+          name: 'common',
+          minChunks: 2,
+          chunks: 'all',
+          enforce: true
+        }
+      }
+    }
   }
 }

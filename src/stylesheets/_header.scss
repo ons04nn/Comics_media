@@ -1,0 +1,147 @@
+@import 'variables';
+
+.site-header {
+  position: relative;
+  top: 0;
+  z-index: 10;
+  background: transparent;
+}
+
+.header__inner {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: clamp(var(--space-sm), 2vw, var(--space-md));
+  padding: clamp(14px, 1.4vw, 18px) 0;
+}
+
+.brand {
+  display: grid;
+  line-height: 1;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.brand-logo {
+  height: clamp(64px, 10vw, 243px);
+  width: auto;
+}
+
+.brand__top {
+  font-size: 18px;
+  opacity: 0.85;
+}
+
+.brand__bottom {
+  font-size: 28px;
+}
+
+.nav {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: clamp(var(--space-sm), 2.5vw, var(--space-xl));
+  font-weight: 700;
+  font-size: clamp(26px, 3.2vw, 60px);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-black);
+  white-space: nowrap;
+}
+
+.nav--left {
+  justify-content: flex-start;
+}
+
+.nav--right {
+  justify-content: flex-end;
+}
+
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: clamp(10px, 1.4vw, var(--space-sm));
+  flex-shrink: 0;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-icon {
+  width: clamp(24px, 2.8vw, 36px);
+  height: clamp(24px, 2.8vw, 36px);
+  object-fit: contain;
+}
+
+.burger {
+  display: none;
+  background: none;
+  border: 0;
+  font-size: 32px;
+  cursor: pointer;
+  z-index: 1100;
+  position: relative;
+}
+
+.mobile-menu {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .header__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .desktop-nav {
+    display: none;
+  }
+
+  .brand {
+    margin-right: auto;
+  }
+
+  .brand-logo {
+    height: 80px;
+  }
+
+  .burger {
+    display: block;
+    z-index: 1001;
+  }
+
+  .mobile-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: auto;
+    height: 100vh;
+    background: var(--color-white);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 120px 32px 32px;
+    transition: right 0.3s ease;
+    z-index: 1000;
+
+    &--open {
+      right: 0;
+    }
+
+    a {
+      font-size: 22px;
+      text-decoration: none;
+      color: var(--color-black);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 16px;
+      margin-top: 24px;
+    }
+  }
+}

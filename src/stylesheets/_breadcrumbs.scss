@@ -1,0 +1,70 @@
+.breadcrumbs div {
+  font-size: calc(var(--font-4xl) * var(--scale-factor));
+}
+
+.breadcrumbs-list {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: calc(var(--font-4xl) * var(--scale-factor));
+  font-weight: 600;
+  color: var(--color-white);
+
+  a {
+    color: var(--color-white);
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .breadcrumb-separator {
+    color: var(--color-black);
+  }
+
+  li {
+    color: #666;
+
+    &:not(:last-child)::after {
+      content: "/";
+      margin-left: var(--space-xs);
+      color: #666;
+    }
+
+    a {
+      color: var(--color-white);
+      text-decoration: none;
+    }
+
+    &[aria-current="page"] {
+      color: var(--color-white);
+      font-weight: 600;
+    }
+
+    &::after {
+      color: var(--color-black);
+    }
+  }
+}
+
+.breadcrumbs a,
+.breadcrumbs li,
+.breadcrumbs-list li {
+  color: var(--color-black);
+}
+
+.breadcrumbs-list a {
+  color: var(--color-black);
+}
+
+.breadcrumbs li::after {
+  color: var(--color-black);
+}
+
+@media (max-width: 1349px) {
+  .breadcrumbs div,
+  .breadcrumbs-list {
+    font-size: calc(var(--font-lg) * var(--scale-factor));
+  }
+}

@@ -1,0 +1,102 @@
+.about-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.about-intro {
+  font-size: 22px;
+  line-height: 1.7;
+  margin-bottom: 50px;
+  color: #333;
+  font-weight: 500;
+}
+
+.about-section {
+  margin-bottom: 50px;
+}
+
+.about-title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: var(--color-black);
+}
+
+.about-text {
+  font-size: 20px;
+  line-height: 1.7;
+  margin-bottom: 20px;
+  color: #333;
+  font-weight: 400;
+}
+
+.about-values {
+  margin-bottom: 50px;
+}
+
+.value-item {
+  margin-bottom: 40px;
+  padding: 25px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  border-left: 5px solid #007bff;
+
+  h4 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 18px;
+    color: #007bff;
+  }
+
+  p {
+    font-size: 20px;
+    line-height: 1.7;
+    margin-bottom: 0;
+    color: #333;
+    font-weight: 400;
+  }
+}
+
+.about-advantages {
+  background: #e9ecef;
+  padding: 40px;
+  border-radius: 10px;
+  margin-bottom: 50px;
+
+  .about-title {
+    color: #007bff;
+  }
+
+  .about-text:last-child {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-content {
+    padding: 0 20px;
+  }
+
+  .about-intro,
+  .about-text {
+    font-size: 18px;
+    line-height: 1.6;
+  }
+
+  .about-title {
+    font-size: 24px;
+  }
+
+  .value-item {
+    padding: 20px;
+
+    h4 {
+      font-size: 20px;
+    }
+  }
+
+  .about-advantages {
+    padding: 25px;
+  }
+}

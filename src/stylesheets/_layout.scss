@@ -1,0 +1,30 @@
+@import 'variables';
+@import 'mixins';
+
+.container {
+  width: clamp(1280px, 75vw, 1680px);
+  max-width: 1680px;
+  margin: 0 auto;
+}
+
+.page {
+  padding: calc(32px * var(--scale-factor, 1)) 0 calc(80px * var(--scale-factor, 1));
+}
+
+.bg-main {
+  background-image: url('../assets/images/bg/main.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bg-production {
+  background-image: url('../assets/images/bg/add.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bg-article {
+  background: none;
+  background-image: none;
+  color: var(--color-black);
+}

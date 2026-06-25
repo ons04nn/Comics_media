@@ -1,0 +1,12 @@
+// Common styles for all App components
+@import 'mixins';
+
+.app-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-content {
+  flex: 1;
+}

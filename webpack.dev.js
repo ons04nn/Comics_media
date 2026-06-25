@@ -1,20 +1,26 @@
 const { merge } = require('webpack-merge')
 const common = require('./webpack.common.js')
-const path = require('path')
-
 
 module.exports = merge(common, {
   mode: 'development',
-  devtool: 'inline-source-map',
+  devtool: 'eval-source-map',
   devServer: {
-    static: './dev_build',
     hot: true,
     open: true,
-    historyApiFallback: true
+    historyApiFallback: true,
+    port: 8080,
+    compress: true,
+    client: {
+      overlay: {
+        errors: true,
+        warnings: false
+      },
+      logging: 'info'
+    }
   },
-  output: {
-    filename: '[name].[contenthash].js',
-    path: path.resolve(__dirname, 'dev_build'),
-    clean: true
-  }
+  plugins: [
+    new (require('webpack')).DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('development')
+    })
+  ]
 })

@@ -1,0 +1,197 @@
+@import 'mixins';
+
+body.bg-article {
+  filter: none;
+
+  *,
+  img,
+  .placeholder,
+  .placeholder-image,
+  .placeholders,
+  .placeholders *,
+  .placeholder img,
+  .placeholders img,
+  .placeholder,
+  .placeholder * {
+    filter: none;
+    -webkit-filter: none;
+    opacity: 1;
+    -webkit-opacity: 1;
+  }
+
+  main {
+    font-family: "IBM Plex Sans", system-ui, sans-serif;
+    font-size: 28px;
+  }
+
+  .article-text,
+  p,
+  b,
+  strong {
+    color: var(--color-black);
+  }
+
+  h2 {
+    color: var(--color-black);
+  }
+
+  .placeholder-content,
+  .placeholder-date {
+    color: var(--color-white);
+  }
+
+  .placeholder-title {
+    color: var(--color-accent);
+    font-family: "Alumni Sans", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  }
+}
+
+.article-text {
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+  font-size: 28px;
+  line-height: 1.5;
+  color: var(--color-black);
+}
+
+.article-hero-wrapper {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-bottom: calc(var(--space-4xl) * var(--scale-factor));
+}
+
+body.bg-article .container.breadcrumbs {
+  position: absolute;
+  top: calc(var(--space-sm) * var(--scale-factor));
+  left: calc(var(--space-sm) * var(--scale-factor));
+  padding: 0;
+  margin: 0;
+  z-index: 10;
+}
+
+body.bg-article .breadcrumbs-list {
+  font-size: calc(25px * var(--scale-factor));
+  color: var(--color-white);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+body.bg-article .breadcrumbs-list a {
+  color: var(--color-white);
+}
+
+body.bg-article .breadcrumb-separator {
+  color: var(--color-white);
+}
+
+@media (max-width: 1349px) {
+  body.bg-article .breadcrumbs-list {
+    font-size: calc(12.5px * var(--scale-factor));
+  }
+}
+
+.article-hero {
+  position: relative;
+  width: 100%;
+  height: auto;
+  display: grid;
+  place-items: center;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+}
+
+.article-hero-image {
+  width: 100%;
+  height:720px;
+  display: block;
+  object-fit: cover;
+  border: none;
+  outline: none;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.article-hero-content {
+  position: absolute;
+  bottom: calc(var(--space-sm) * var(--scale-factor));
+  left: calc(var(--space-sm) * var(--scale-factor));
+  right: calc(var(--space-sm) * var(--scale-factor));
+  color: var(--color-white);
+}
+
+.anime-list {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--space-3xl) * var(--scale-factor));
+}
+
+.anime-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: calc(var(--space-2xl) * var(--scale-factor));
+
+  &--right {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  &--left .anime-item-image {
+    order: 0;
+  }
+
+  &--left .anime-item-text {
+    order: 1;
+  }
+
+  &--right .anime-item-image {
+    order: 1;
+  }
+
+  &--right .anime-item-text {
+    order: 0;
+  }
+}
+
+.anime-item-image {
+  width: 100%;
+  height: auto;
+}
+
+.anime-item-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.anime-item-text {
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+  p {
+    margin: 0;
+  }
+}
+
+@media (max-width: 799px) {
+  .anime-list {
+    gap: calc(var(--space-xl) * var(--scale-factor));
+  }
+
+  .anime-item {
+    grid-template-columns: 1fr;
+    gap: calc(var(--space-sm) * var(--scale-factor));
+
+    &--left .anime-item-image,
+    &--right .anime-item-image {
+      order: 0;
+    }
+
+    &--left .anime-item-text,
+    &--right .anime-item-text {
+      order: 1;
+    }
+  }
+}

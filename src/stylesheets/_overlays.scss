@@ -1,0 +1,52 @@
+@import 'variables';
+@import 'mixins';
+
+.overlay-stack {
+  position: absolute;
+  bottom: 0;
+  right: -200px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0;
+  pointer-events: none;
+  z-index: 10;
+  @include scaled(right, -200px);
+
+  .overlay-img:first-child {
+    margin-right: -100px;
+    @include scaled(margin-right, -100px);
+  }
+}
+
+.contest-main .overlay-stack {
+  right: -100px;
+}
+
+.overlay-img {
+  width: clamp(380px, 29.5vw, 500px);
+  height: clamp(228px, 17.5vw, 300px);
+  object-fit: cover;
+  border: var(--card-border);
+  filter: saturate(0) contrast(0.7);
+  pointer-events: auto;
+  @include scaled(width, 500px);
+  @include scaled(height, 300px);
+  @include scaled(border-width, 10px);
+}
+
+.overlay-rotate-left {
+  transform: rotate(-20deg);
+  z-index: 1;
+}
+
+.overlay-rotate-right {
+  transform: rotate(-5deg);
+  z-index: 2;
+}
+
+.placeholder-wrapper:hover .overlay-stack .overlay-img,
+.placeholder-with-overlay:hover + .overlay-stack .overlay-img,
+.overlay-stack:hover .overlay-img {
+  filter: saturate(1) contrast(1);
+  transition: filter 0.3s ease;
+}
